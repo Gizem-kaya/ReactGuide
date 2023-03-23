@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>
+            First Reaction
+        </title>
+        <script crossorigin src="https://unpkg.com/react@18/umd/react.development.js"></script>
+        <script crossorigin src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/babel-standalone/7.21.3/babel.min.js"></script>
+        <style>
+            #root {
+                background-color: red;
+            }
+            #root h1{
+                font-size: 30px;
+                color: black;
+                font-style: italic;
+            }
+        </style>
+    <body>
+        <div id="root"></div>
+        <script type="text/babel">
+            ReactDOM.render(<h1>First React</h1>, document.getElementById("root"));
+        </script>
+    </body>
+    </head>
+</html>

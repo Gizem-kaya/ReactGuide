@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>
+            Arrays
+        </title>
+        <script crossorigin src="https://unpkg.com/react@18/umd/react.development.js"></script>
+        <script crossorigin src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/babel-standalone/7.21.3/babel.min.js"></script>
+        
+    <body>
+        <div id="root"></div>
+        <script type="text/babel">
+        
+            class ListOfCourses extends React.Component{
+                render(){
+                    return <div>
+                    <h1>{this.props.title}</h1>
+                        <ul>
+                            <li>Angular</li>
+                            <li>React</li>
+                            <li>Node</li>
+                            <li>Express</li>
+                            
+                        </ul>
+                    </div>
+                }
+            }
+
+            class ListOfCoursesWithLoop extends React.Component{
+        
+                render(){
+
+                    const list = ['Angular', 'React', 'Node', 'Express'];
+
+                    const returnArray = [];
+
+                    for (let element of list){
+                        returnArray.push(<li>{element}</li>)
+                    }
+
+
+                    return <div>
+                    <h1>{this.props.title}</h1>
+                        <ul>
+                            {returnArray}
+                        </ul>
+                    </div>
+                }
+            }
+
+            class ListOfCoursesWithMap extends React.Component{
+        
+                render(){
+
+                    const list = ['Angular', 'React', 'Node', 'Express'];
+
+                    return <div>
+                    <h1>{this.props.title}</h1>
+                        <ul>
+                            {list.map(element=><li>{element}</li>)}
+                        </ul>
+                    </div>
+                }
+            }               
+
+            ReactDOM.render(<div><ListOfCourses title="List of Courses"/><ListOfCoursesWithLoop title="List of Courses with Loop"/><ListOfCoursesWithMap title="List of Courses with Map"/></div>, document.getElementById("root"));
+        </script>
+    </body>
+    </head>
+</html>

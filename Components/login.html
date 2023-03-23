@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>
+            Login
+        </title>
+        <script crossorigin src="https://unpkg.com/react@18/umd/react.development.js"></script>
+        <script crossorigin src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/babel-standalone/7.21.3/babel.min.js"></script>
+        
+    <body>
+        <div id="root"></div>
+        <script type="text/babel">
+           
+            class Login extends React.Component{
+                render(){
+                    return <div>
+                    <h1>{this.props.title}</h1>
+
+                    <label>Username</label>
+                    <br/>
+                    <input type='text'></input>
+                    <br/><br/>
+                    <label>Password</label>
+                    <br/>
+                    <input type='password'></input>
+                    <br/><br/>
+                    <input type='button' value='Submit'></input>
+                    </div>
+                }
+            }
+            // To be able to render multiple components in reactDOM.render we should write one root element. So JSX must have one root element.
+            ReactDOM.render(<div><Login title="Please Login"/></div>, document.getElementById("root"));
+        </script>
+    </body>
+    </head>
+</html>

@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>
+            Hello
+        </title>
+        <script crossorigin src="https://unpkg.com/react@18/umd/react.development.js"></script>
+        <script crossorigin src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/babel-standalone/7.21.3/babel.min.js"></script>
+        
+    <body>
+        <div id="root"></div>
+        <script type="text/babel">
+            // Reusable React Component
+            class Hello extends React.Component{
+                // Override the render method.
+                render(){       
+                    return <b>Hello {this.props.name} {this.props.children} </b>;
+                }
+            }
+
+            function HelloFun(props){
+                return <b>Hello from functional component {props.name} {props.children} </b>;
+
+            }
+            // We can use a react component multiple times if they are in div.
+            ReactDOM.render(<div><Hello name="Gizem"><p>Keskin</p></Hello><HelloFun name="Erudes"><p>Keskin</p></HelloFun></div>, document.getElementById("root"));
+        </script>
+    </body>
+    </head>
+</html>

@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>
+            Tables
+        </title>
+        <script crossorigin src="https://unpkg.com/react@18/umd/react.development.js"></script>
+        <script crossorigin src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/babel-standalone/7.21.3/babel.min.js"></script>
+        
+    <body>
+        <div id="root"></div>
+        <script type="text/babel">
+        
+            class Table extends React.Component{
+                render(){
+                    return <div>
+                    <h1>{this.props.title}</h1>
+                        
+                    <table>
+                        <thead>
+                           <tr>
+                                <td>Name</td>
+                                <td>Age</td>
+                                <td>City</td>
+                            </tr> 
+                        </thead>
+                        <tbody>               
+                            <tr>
+                                <td>Gizem</td>
+                                <td>28</td>
+                                <td>Eindhoven</td>
+                            </tr> 
+                            <tr>
+                                <td>Erudes</td>
+                                <td>8</td>
+                                <td>Ankara</td>
+                            </tr> 
+                        </tbody>
+                        
+                    </table>
+                    </div>
+                }
+            }
+
+
+            class TableWithMap extends React.Component{
+                render(){
+
+                    const people = [{name: 'Gizem', age: 28, city: 'Eindhoven'},
+                                    {name: 'Erudes', age: 8, city: 'Ankara'}]
+
+                    return <div>
+                    <h1>{this.props.title}</h1>
+                        
+                    <table>
+                        <thead>
+                           <tr>
+                                <td>Name</td>
+                                <td>Age</td>
+                                <td>City</td>
+                            </tr> 
+                        </thead>
+                        <tbody>       
+                            {people.map(element=><tr>
+                                <td>{element.name}</td>
+                                <td>{element.age}</td>
+                                <td>{element.city}</td>
+                            </tr> )}        
+                        </tbody>
+                        
+                    </table>
+                    </div>
+                }
+            }
+
+
+            class CreateTableParent extends React.Component{
+                render(){
+
+
+                    const people = [{name: 'Gizem', age: 28, city: 'Eindhoven'},
+                                    {name: 'Erudes', age: 8, city: 'Ankara'}]
+
+                    return <div>
+                    <h1>{this.props.title}</h1>
+                        
+                    <table>
+                        <thead>
+                           <tr>
+                                <td>Name</td>
+                                <td>Age</td>
+                                <td>City</td>
+                            </tr> 
+                        </thead>
+                        <tbody>   
+                            {people.map(record=><CreateTableChild element={record}/>)}
+                        </tbody>
+                        
+                    </table>
+                    </div>
+                }
+            }
+
+            class CreateTableChild extends React.Component{
+                render(){
+                    return <tr>
+                                <td>{this.props.element.name}</td>
+                                <td>{this.props.element.age}</td>
+                                <td>{this.props.element.city}</td>
+                            </tr>
+                }
+            }
+
+            ReactDOM.render(<div><Table title="Table of People"/><TableWithMap title="Table of People With Map"/><CreateTableParent title="Table of People With Parent-Child"/></div>, document.getElementById("root"));
+        </script>
+    </body>
+    </head>
+</html>
