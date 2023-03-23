@@ -1,3 +1,3 @@
 # ReactGuide
 
-In this repository there are many React components that everybody can use in their applications.
+In this repository there are many React components and React notes that everybody can use in their applications.
