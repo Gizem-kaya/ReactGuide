@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>
+            Car Style
+        </title>
+        <script crossorigin src="https://unpkg.com/react@18/umd/react.development.js"></script>
+        <script crossorigin src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/babel-standalone/7.21.3/babel.min.js"></script>
+        
+    <body>
+        <div id="root"></div>
+        <script type="text/babel">
+
+        class CarsList extends React.Component {
+
+            cars = [ {brand:"BMW", model:"X2", year:"2019"} ];
+            tableStyle = { border: "solid", width: 300 };
+            thStyle = { height: 20, textAlign: "center" };
+            tdStyle = { height: 15, textAlign: "center" };
+
+            constructor(props) {
+                super(props);
+                this.state = {"cars": this.cars};
+            }
+
+            addCar(event) {
+                var cars = this.state.cars;
+                cars.push({brand:"Honda", model:"Accord", year:"2019"})
+                this.setState({"cars": cars});
+            }
+
+            render() {
+                return <div>
+                    <table style={this.tableStyle}>
+                        <thead>
+                            <tr>
+                                <th style={this.thStyle}>Brand</th>
+                                <th style={this.thStyle}>Model</th>
+                                <th style={this.thStyle}>Year</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            {this.state.cars.map(
+                                    car => <tr>
+                                        <td style={this.tdStyle}>{car.brand}</td>
+                                        <td style={this.tdStyle}>{car.model}</td>
+                                        <td style={this.tdStyle}>{car.year}</td>
+                                    </tr>)}
+                        </tbody>
+                    </table>
+                    <input type="button" value="add Car" onClick={this.addCar.bind(this)}/>
+                </div>
+            }
+        }
+
+            ReactDOM.render(<CarsList/>, document.getElementById("root"));
+        </script>
+    </body>
+    </head>
+</html>

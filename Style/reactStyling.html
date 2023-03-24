@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>
+            React Styling
+        </title>
+        <script crossorigin src="https://unpkg.com/react@18/umd/react.development.js"></script>
+        <script crossorigin src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/babel-standalone/7.21.3/babel.min.js"></script>
+        
+    <body>
+        <div id="root"></div>
+        <script type="text/babel">
+
+            class Text extends React.Component{
+                render(){
+                    const textStyle = {
+                        backgroundColor: this.props.bgcolor,
+                        color: 'red', 
+                        fontSize: 30,
+                        textAlign: 'center',
+                        padding: '10px',
+                        margin: '10px'
+                    }
+
+
+
+                    return <div style={textStyle}>
+                        
+                        {this.props.children}
+                        </div>
+                }
+            }
+
+            
+
+
+            ReactDOM.render(<div>
+                <Text bgcolor='gray'>Line 1</Text>
+                <Text bgcolor='black'>Line 2</Text>
+                <Text bgcolor='orange'>Line 3</Text>
+                <Text bgcolor='white'>Line 4</Text>
+                </div>, document.getElementById("root"));
+        </script>
+    </body>
+    </head>
+</html>
