@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>
+            List Courses
+        </title>
+        <script crossorigin src="https://unpkg.com/react@18/umd/react.development.js"></script>
+        <script crossorigin src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/babel-standalone/7.21.3/babel.min.js"></script>
+        
+    <body>
+        <div id="root"></div>
+        <script type="text/babel">
+           
+            class ListCourses extends React.Component {
+
+                constructor(props){
+                    super(props);       // Because we are extending React.Component
+                    this.state = {courses: ['Angular', 'React', 'Express', 'Node']};
+                }
+
+                handleUpdate(){
+                    // We are using this object so we should call bind method in onClick method.
+                    this.setState({courses: ['Angular', 'React', 'Express', 'Node', 'JavaScript']});
+                }
+
+                render(){
+                    return <div>
+                        <h1>{this.props.title}</h1>
+                        <ul>
+                            {this.state.courses.map(course => <li>{course}</li>)}
+                        </ul>
+                        <input type='Button' value='Update' onClick={this.handleUpdate.bind(this)}/>
+                    </div>
+                }
+
+            }
+
+            ReactDOM.render(<div><ListCourses title='List of Courses'/></div>, document.getElementById("root"));
+        </script>
+    </body>
+    </head>
+</html>

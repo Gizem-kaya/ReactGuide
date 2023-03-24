@@ -13,6 +13,19 @@
         <script type="text/babel">
            
             class Login extends React.Component{
+
+                // handleSubmit(){
+                //     alert('Inside Handle Submit');
+                // }
+
+                // This is called React synthetic event.
+                handleSubmit(event){
+                    alert(event.type);
+                    console.log(this);
+                }
+
+                // To access the object and the properties of the object from event handler we should use bind method.
+
                 render(){
                     return <div>
                     <h1>{this.props.title}</h1>
@@ -25,7 +38,7 @@
                     <br/>
                     <input type='password'></input>
                     <br/><br/>
-                    <input type='button' value='Submit'></input>
+                    <input type='button' value='Submit' onClick={this.handleSubmit.bind(this)}></input>      
                     </div>
                 }
             }
